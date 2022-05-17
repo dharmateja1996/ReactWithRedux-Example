@@ -16,19 +16,7 @@ const reducerTodo = (state = initialState, action) => {
                 ...state,
                 todoList: state.todoList.filter(todo => todo.id !== action.payload),
             }
-        case 'EDIT_TODO':
-            return {
-                ...state,
-                todoList: state.todoList.map(todo => {
-                    if (todo.id === action.payload.id) {
-                        return {
-                            ...todo,
-                            title: action.payload.title,
-                        }
-                    }
-                    return todo;
-                }),
-            }
+        
         case 'CHANGE_TITLE':
             return {
                 ...state,
