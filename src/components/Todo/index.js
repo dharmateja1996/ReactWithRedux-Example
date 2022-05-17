@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid';
+import { addToDoAction, changeTitleAction, deleteToDoAction,} from '../../redux/action/actionForTodo';
+
 
 import './index.css'
 
@@ -10,7 +12,11 @@ const Todo = () => {
     const dispatch = useDispatch();
     const onHandleChange = (e) => {
         
-        dispatch({ type: "CHANGE_TITLE", payload: e.target.value });
+        // dispatch({ type: "CHANGE_TITLE", payload: e.target.value });
+
+        dispatch(changeTitleAction(e.target.value));
+
+
     };
     const onAddTodo = () => {
 
@@ -19,12 +25,17 @@ const Todo = () => {
             title: gState.title,
             completed: false,
         };
-        dispatch({ type: "ADD_TODO", payload: newTodo });
+        // dispatch({ type: "ADD_TODO", payload: newTodo });
+
+        dispatch(addToDoAction(newTodo));
 
     };
 
     const onDeleteTodo = (id) => {
-        dispatch({ type: "DELETE_TODO", payload: id });
+        // dispatch({ type: "DELETE_TODO", payload: id });
+
+        dispatch(deleteToDoAction(id));
+        
     }
 
    

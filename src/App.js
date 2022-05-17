@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import Todo from "./components/Todo";
+import { decrementAction, incrementAction } from "./redux/action/actionForIncDec";
 
 const App = () => {
   const gState = useSelector((state) => state.reducerIncDec);
@@ -9,11 +10,15 @@ const App = () => {
   console.log(gState);
 
   const onIncrement = () => {
-    dispatch({ type: "INC" });
+    // dispatch({ type: "INC" });
+    dispatch(incrementAction())
+
   };
 
   const onDecrement = () => {
-    dispatch({ type: "DEC" });
+    // dispatch({ type: "DEC" });
+
+    dispatch(decrementAction())
   };
   return (
     <div className="App">
